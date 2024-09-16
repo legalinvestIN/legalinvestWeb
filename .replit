@@ -1,0 +1,22 @@
+run = "npm run dev"
+modules = ["nodejs-20"]
+hidden = [".config", "package-lock.json"]
+entrypoint = "src/main.jsx"
+
+[nix]
+channel = "stable-24_05"
+
+[env]
+PORT = "3000"
+
+[unitTest]
+language = "nodejs"
+
+[deployment]
+deploymentTarget = "static"
+build = ["npm", "run", "build"]
+publicDir = "dist"
+
+[[ports]]
+localPort = 3000
+externalPort = 80
